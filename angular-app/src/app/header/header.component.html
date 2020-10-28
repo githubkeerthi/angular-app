@@ -1,0 +1,16 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
+        <a href="https://angular-templates.io/tutorials/about/learn-angular-from-scratch-step-by-step" class="navbar-brand">
+            Angular</a>
+
+        <ul class="navbar-nav">
+            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/dashboard" class="nav-link">Home</a></li>
+            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/user-list" class="nav-link">Users</a></li>
+        </ul>
+
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+                <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+                <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,13 @@
+
+
+@media screen and (max-width: 600px) {
+    .col-lg-12, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  
+    .form-control{
+      width: 200px;
+    }
+  }
+  

@@ -1,0 +1,27 @@
+<div class="container">
+    <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Name</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor="let user of usersList">
+                            <td>{{user.id}}</td>
+                            <td><a routerLink="/user/{{user.id}}" class="nav-link">{{user.name.firstName}} {{user.name.lastName}}</a></td>
+                            <td>{{user.address.city}}</td>
+                            <td>{{user.address.state}}</td>
+                            <td><button (click)="editUser(user.id)" class="btn btn-success">Edit</button></td>
+                    </tr>
+            </tbody>
+            <tr><td>
+                    <div class="row">
+                            <button (click)="createUser()" class="btn btn-success">Add</button>
+                        </div></td>
+            </tr>
+          </table>
+    </div>

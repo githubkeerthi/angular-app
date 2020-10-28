@@ -1,0 +1,123 @@
+<div class="container">
+    <h2 class="well">User Form</h2>
+    <div class="col-lg-12 well">
+        <!-- <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate> -->
+        <form name="form" (ngSubmit)="!userForm.invalid && saveOrUpdateUser()" #userForm="ngForm" novalidate>
+            <div class="col-lg-12">
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <h6 class="well">User Details :</h6>
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="Enter First Name Here.." class="form-control"
+                            required="required"
+                            [ngClass]="{ 'is-invalid':userForm.submitted && firstName.invalid }"
+                            name="firstName" [(ngModel)]="user.name.firstName" #firstName="ngModel"
+                            minlength="5" maxlength="15">
+                        <div *ngIf="userForm.submitted && firstName.invalid" class="invalid-feedback">
+                            <div *ngIf="firstName.errors.required">First Name is required</div>
+                            <div *ngIf="firstName.errors.minlength">First Name must be at least 5 characters
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Enter Last Name Here.." class="form-control"
+                            required="required"
+                            [ngClass]="{ 'is-invalid':userForm.submitted && lastName.invalid }"
+                            name="lastName" [(ngModel)]="user.name.lastName" #lastName="ngModel"
+                            minlength="3" maxlength="10">
+                        <div *ngIf="userForm.submitted && lastName.invalid" class="invalid-feedback">
+                            <div *ngIf="lastName.errors.required">Last Name is required</div>
+                            <div *ngIf="lastName.errors.minlength">Last Name must be at least 3 characters
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label>Phone Number</label>
+                            <input type="number" placeholder="Enter Phone Number Here.." class="form-control"
+                                required="required" [ngClass]="{ 'is-invalid':userForm.submitted && phone.invalid }"
+                                name="phone" [(ngModel)]="user.phone" #phone="ngModel" min="10" max="10" minlength="10" maxlength="10">
+                            <div *ngIf="userForm.submitted && phone.invalid" class="invalid-feedback">
+                                <div *ngIf="phone.errors.required">Phone is required</div>
+                                <div *ngIf="phone.errors.minlength">Phone must be at least 10 characters</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="Enter Email Address Here.." class="form-control" email
+                                required="required" [ngClass]="{ 'is-invalid':userForm.submitted && email.invalid }"
+                                name="email" [(ngModel)]="user.emailId" #email="ngModel" maxlength="30">
+                            <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
+                                <div *ngIf="email.errors.required">Email is required</div>
+                                <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                    </div>
+             
+                <div class="row">
+                    <h6 class="well">Address Details :</h6>
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label>Address</label>
+                        <textarea placeholder="Enter Address 1 Here.." rows="3" class="form-control" required="required"
+                            [ngClass]="{ 'is-invalid':userForm.submitted && address1.invalid }" name="address1"
+                            [(ngModel)]="user.address.address1" #address1="ngModel" minlength="10"
+                            maxlength="200"></textarea>
+                        <div *ngIf="userForm.submitted && address1.invalid" class="invalid-feedback">
+                            <div *ngIf="address1.errors.required">Address is required</div>
+                            <div *ngIf="address1.errors.minlength">Address must be at least 10 characters</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label>City</label>
+                        <input type="text" placeholder="Enter City Name Here.." class="form-control" required="required"
+                            [ngClass]="{ 'is-invalid':userForm.submitted && city.invalid }" name="city"
+                            [(ngModel)]="user.address.city" #city="ngModel">
+                        <div *ngIf="userForm.submitted && city.invalid" class="invalid-feedback">
+                            <div *ngIf="city.errors.required">City is required</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label>State</label>
+                        <input type="text" placeholder="Enter State Name Here.." class="form-control"
+                            required="required" [ngClass]="{ 'is-invalid':userForm.submitted && state.invalid }"
+                            name="state" [(ngModel)]="user.address.state" #state="ngModel">
+                        <div *ngIf="userForm.submitted && state.invalid" class="invalid-feedback">
+                            <div *ngIf="state.errors.required">State is required</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label>Pincode</label>
+                        <input type="number" placeholder="Enter Pin Code Here.." class="form-control"
+                            required="required" [ngClass]="{ 'is-invalid':userForm.submitted && pincode.invalid }"
+                            name="pincode" [(ngModel)]="user.address.pincode" #pincode="ngModel" minlength="6"
+                            maxlength="6">
+                        <div *ngIf="userForm.submitted && pincode.invalid" class="invalid-feedback">
+                            <div *ngIf="pincode.errors.required">Pincode is required</div>
+                            <div *ngIf="pincode.errors.minlength">Pincode must be at least 6 characters</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="d-flex justify-content-center">
+                    <button *ngIf="id<=0 || id==null" type="submit" class="btn btn-success">Submit</button>&nbsp;
+                    <button *ngIf="id >0" type="submit" class="btn btn-success">Update</button>&nbsp;
+                    <button class="btn btn-secondary" (click)="goToPreviousPage()">Back</button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>
