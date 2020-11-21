@@ -73,13 +73,13 @@
 .login-container .form-group figure {
     position: absolute;
     margin: 0;
-}
-.login-container .form-group figure img{
-    width: 24px;
+    img{
+        width: 24px;
+    }
 }
 .login-container .form-group .form-control{
     border: none;
-    padding: 0 0 0 35px;
+    padding: 0 0 0 40px;
     font-size:16px;
     display: flex;
     align-items: center;

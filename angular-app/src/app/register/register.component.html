@@ -1,0 +1,49 @@
+<div class="login-main-wrapp">
+<div class="login-container">
+    <h2>Sign Up</h2>
+    <form>
+        <div class="form-group">
+            <figure>
+                <img src="../../assets/images/user.png">
+            </figure>
+            <input type="text" class="form-control" placeholder="First Name"  [(ngModel)] ="username">
+        </div>
+        <div class="form-group">
+            <figure>
+                <img src="../../assets/images/user.png">
+            </figure>
+            <input type="text" class="form-control" placeholder="Last Name"  [(ngModel)] ="username">
+        </div>
+        <div class="form-group">
+            <figure>
+                <img src="../../assets/images/email.png">
+            </figure>
+            <input type="text" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <figure>
+                <img src="../../assets/images/company.png">
+            </figure>
+            <input type="text" class="form-control" placeholder="Company">
+        </div>
+        <div class="form-group">
+            <figure>
+                <img src="../../assets/images/address.png">
+            </figure>
+            <textarea class="form-control" placeholder="Address" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <figure>
+                <img src="../../assets/images/key.png">
+            </figure>
+            <input type="password" placeholder="Enter your Password" class="form-control"  [(ngModel)] ="password">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-block btn-login" placeholder="Enter your Password" (click) = authenticateUser()>
+        </div>
+        <div class="login-sign-up">
+            Do you have an account? <a href="">Sign In</a>
+        </div>
+    </form> 
+</div>
+</div>
